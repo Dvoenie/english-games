@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English City: Road to 100 Points</title>
+<meta name="description" content="Браузерная игра для подготовки к ЕГЭ по английскому: гонки, расследования, мессенджер и битвы знаний в неоновом тропическом городе. Английский с Ириной Александровной.">
+<meta name="theme-color" content="#0b0420">
+<meta property="og:title" content="English City: Road to 100 Points">
+<meta property="og:description" content="Игра-тренажёр ЕГЭ по английскому. Английский с Ириной Александровной.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffd166'/%3E%3Cstop offset='1' stop-color='%23ff2e88'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b0420'/%3E%3Ccircle cx='32' cy='30' r='18' fill='url(%23g)'/%3E%3Crect x='8' y='40' width='48' height='4' fill='%230b0420'/%3E%3Crect x='8' y='48' width='48' height='3' fill='%2322e4ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rubik:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/phone.css">
+<link rel="stylesheet" href="css/minigames.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Главное меню -->
+  <section class="screen" id="screen-menu" aria-label="Главное меню">
+    <div id="menu-bg"></div>
+    <div class="menu-wrap">
+      <div class="logo">
+        <div class="kicker">ЕГЭ · английский · 2026</div>
+        <h1 class="l-top" style="margin:8px 0 0">ENGLISH<br>CITY</h1>
+        <div class="l-sub"><span>ROAD TO 100 POINTS</span></div>
+        <p class="l-tag">Неоновый тропический мегаполис, где английский — главный инструмент. Гонки, расследования, контракты и битвы знаний на настоящих заданиях ЕГЭ.</p>
+        <div class="brand-caption">Английский с Ириной Александровной</div>
+      </div>
+      <div class="menu-card" id="menu-card"></div>
+      <div class="legal">Оригинальная фанатская образовательная игра. Не связана с Rockstar Games и не является их продуктом. Без регистрации и сбора данных.</div>
+    </div>
+  </section>
+
+  <!-- Карта -->
+  <section class="screen" id="screen-map" aria-label="Карта города">
+    <div class="map-stage"><div class="map-frame" id="map-frame"></div></div>
+    <div class="map-progress" id="map-progress"></div>
+    <div class="map-legend">
+      <span class="chip gold">● сюжет</span><span class="chip cyan">● побочные</span><span class="chip pink">● босс</span><span class="chip mint">✓ пройдено</span>
+      <button class="chip" id="map-menu" style="cursor:pointer">⚙ меню</button>
+    </div>
+    <div class="sheet hidden" id="sheet" role="dialog" aria-label="Район"></div>
+  </section>
+
+  <!-- Миссия -->
+  <section class="screen" id="screen-mission" aria-label="Миссия">
+    <div id="mission-bg" style="position:absolute;inset:0;opacity:.45"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,4,32,.55),rgba(11,4,32,.9) 40%)"></div>
+    <div class="mission-scroll" id="mission-scroll"><div class="mission-inner" id="mission-inner"></div></div>
+    <div class="mission-tag" id="mission-tag"></div>
+    <div class="minimap" id="minimap" aria-hidden="true"></div>
+    <button class="btn btn-ghost btn-sm quit-btn" id="quit-btn">✕ Выйти</button>
+  </section>
+
+  <!-- HUD -->
+  <header class="hud hidden" id="hud">
+    <div class="player"><div class="ava" id="hud-ava"></div><div class="who"><div class="nm" id="hud-name"></div><div class="rk" id="hud-rank"></div></div></div>
+    <div class="xp"><div class="lv"><span id="hud-lv"></span><span id="hud-xpt"></span></div><div class="bar"><i id="hud-xp"></i></div></div>
+    <div class="rep" title="Репутация">★ <span id="hud-rep"></span></div>
+    <div class="streak" id="hud-streak"></div>
+    <div class="money" id="hud-money"></div>
+  </header>
+  <button class="phone-btn hidden" id="phone-btn" aria-label="Открыть смартфон">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+    <span class="badge hidden" id="phone-badge">0</span>
+  </button>
+
+  <div class="phone-overlay" id="phone-overlay" aria-hidden="true"><div class="phone" id="phone" role="dialog" aria-label="Смартфон"></div></div>
+  <div class="dialogue" id="dialogue" aria-hidden="true"></div>
+  <div class="result" id="result" role="dialog" aria-label="Итог миссии"></div>
+  <div class="modal" id="modal"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <div class="loader" id="loader" aria-live="polite"><div class="ld-scene"></div><div class="ld-inner" style="position:relative"><div class="kicker ld-kicker"></div><div class="ld-title"></div><div class="bar"><i></i></div><div class="ld-tip"></div></div></div>
+</div>
+
+<noscript><p style="color:#fff;padding:20px">Для игры нужен JavaScript.</p></noscript>
+
+<!-- Учебный контент (можно редактировать без изменения логики) -->
+<script src="data/topics.js"></script>
+<script src="data/questions.js"></script>
+<script src="data/texts.js"></script>
+<script src="data/characters.js"></script>
+<script src="data/missions.js"></script>
+<!-- Движок -->
+<script src="js/storage.js"></script>
+<script src="js/art.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/progression.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/dialogue.js"></script>
+<script src="js/map.js"></script>
+<script src="js/missions.js"></script>
+<script src="js/statistics.js"></script>
+<script src="js/phone.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

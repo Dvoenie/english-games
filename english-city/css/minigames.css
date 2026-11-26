@@ -1,0 +1,174 @@
+/* Мини-игры: гонка, погоня, терминал, мессенджер, бизнес, расследование, аэропорт, босс */
+.mg-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+.mg-head h2 { margin: 0; font-family: var(--font-display); font-size: clamp(24px, 4vw, 38px); line-height: 1; }
+.mg-head p { margin: 4px 0 0; color: var(--ink-dim); font-size: 14px; }
+
+/* ---------- Гонка ---------- */
+.race-view { position: relative; border-radius: 18px; overflow: hidden; height: clamp(220px, 34vh, 320px); border: 1px solid var(--line); margin-bottom: 14px; background: #1a0636; }
+.race-view .rv-sky { position: absolute; inset: 0 0 45% 0; }
+.race-view .rv-sky svg { width: 100%; height: 100%; }
+.race-road { position: absolute; left: 0; right: 0; bottom: 0; height: 64%; background: linear-gradient(180deg, #2b1450, #12062a); }
+.race-road .lane { position: absolute; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, rgba(255,255,255,.55) 0 40px, transparent 40px 80px); animation: lane 0.6s linear infinite; }
+.race-road .edge { position: absolute; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--pink), var(--cyan)); box-shadow: 0 0 12px var(--pink); }
+.racer { position: absolute; height: 23%; aspect-ratio: 240 / 90; max-width: 34%; transition: left .8s cubic-bezier(.2,.8,.2,1); transform: translateX(-50%); }
+.racer svg { display: block; width: 100%; height: 100%; }
+.racer .tag { position: absolute; top: 0; left: 50%; transform: translate(-50%, -45%); z-index: 1; font-size: 10px; font-family: var(--font-display); white-space: nowrap; padding: 1px 6px; border-radius: 6px; background: rgba(0,0,0,.6); }
+.racer.me .tag { background: var(--pink); }
+.racer.boost svg { filter: drop-shadow(-18px 0 10px rgba(34,228,255,.9)); }
+.race-dash { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; margin-bottom: 14px; }
+.speedo { width: 110px; height: 70px; }
+.speedo svg { width: 100%; height: 100%; }
+.race-stats { display: grid; gap: 6px; }
+.race-stats .bar { height: 10px; }
+.race-stats .lbl { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-dim); }
+.pos-badge { font-family: var(--font-display); font-size: 42px; line-height: 1; text-align: center; }
+.pos-badge small { display: block; font-size: 11px; letter-spacing: .14em; color: var(--ink-mute); }
+
+/* ---------- Погоня ---------- */
+.chase-view { position: relative; height: clamp(200px, 30vh, 300px); border-radius: 18px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 14px; background: #0b0420; }
+.chase-view .cv-city { position: absolute; inset: 0; }
+.chase-view .cv-city svg { width: 100%; height: 100%; }
+.chase-view .cv-road { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: #160830; border-top: 3px solid var(--cyan); }
+.chase-view .cv-road::after { content: ''; position: absolute; left: 0; right: 0; top: 45%; height: 3px; background: repeating-linear-gradient(90deg, #ffd166 0 30px, transparent 30px 70px); animation: lane .4s linear infinite; }
+.chase-view .drone { position: absolute; top: 18%; width: 70px; transition: left .8s ease; }
+.chase-view .drone svg { width: 100%; }
+.chase-view .player-car { position: absolute; bottom: 8%; width: clamp(90px, 14vw, 130px); transition: left .8s ease; }
+.chase-view .lights { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; opacity: 0; transition: opacity .3s; }
+.chase-view .lights.on { opacity: 1; animation: siren 0.8s steps(2) infinite; }
+.wanted { display: flex; gap: 4px; align-items: center; }
+.wanted svg { width: 30px; height: 30px; }
+.wanted .lbl { font-family: var(--font-display); font-size: 12px; letter-spacing: .14em; margin-right: 6px; color: var(--ink-dim); }
+.timer-ring { width: 52px; height: 52px; }
+
+/* ---------- Терминал ---------- */
+.terminal {
+  font-family: var(--font-mono); background: #050a08; color: #7cf29c; border-radius: 16px; border: 1px solid rgba(124,242,156,.35);
+  box-shadow: 0 0 40px rgba(124,242,156,.15) inset, 0 0 24px rgba(124,242,156,.15);
+  padding: 16px; position: relative; overflow: hidden;
+}
+.terminal::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(180deg, rgba(0,0,0,.18) 0 2px, transparent 2px 4px); }
+.terminal .t-log { font-size: 13px; line-height: 1.55; min-height: 60px; white-space: pre-wrap; word-break: break-word; }
+.terminal .t-log .warn { color: #ffd166; }
+.terminal .t-log .err { color: #ff6b81; }
+.terminal .locks { display: flex; gap: 6px; margin: 10px 0; flex-wrap: wrap; }
+.terminal .lock { width: 34px; height: 34px; border-radius: 8px; border: 1px solid rgba(124,242,156,.4); display: grid; place-items: center; }
+.terminal .lock svg { width: 18px; height: 18px; }
+.terminal .lock.open { background: rgba(124,242,156,.2); }
+.terminal .qcard { background: rgba(124,242,156,.04); border-color: rgba(124,242,156,.3); backdrop-filter: none; color: #d9ffe6; }
+.terminal .word { font-family: var(--font-mono); background: rgba(124,242,156,.08); border-color: rgba(124,242,156,.35); color: #d9ffe6; }
+.terminal .opt { font-family: var(--font-mono); }
+.unlock-anim { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(5,10,8,.9); z-index: 5; font-size: clamp(22px, 5vw, 42px); font-family: var(--font-mono); color: #7cf29c; text-shadow: 0 0 20px #7cf29c; }
+
+/* ---------- Мессенджер-миссия ---------- */
+.msg-wrap { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; }
+.msg-phone { width: min(460px, 100%); border-radius: 36px; padding: 10px; background: linear-gradient(160deg, #2a2340, #0d0a18); box-shadow: 0 0 0 2px rgba(255,255,255,.1), 0 20px 60px rgba(0,0,0,.6); }
+.msg-screen { border-radius: 28px; overflow: hidden; background: #120a26; display: flex; flex-direction: column; min-height: 520px; }
+.msg-top { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: rgba(255,255,255,.04); border-bottom: 1px solid var(--line); }
+.msg-top .r-ava { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; }
+.msg-top .r-ava svg { width: 100%; height: 100%; }
+.msg-top b { display: block; font-size: 15px; }
+.msg-top small { color: var(--mint); font-size: 12px; }
+.msg-body { flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.msg-reply { border-top: 1px solid var(--line); padding: 10px; background: rgba(0,0,0,.25); }
+.msg-reply .qcard { padding: 12px; background: transparent; border: 0; backdrop-filter: none; }
+.msg-reply .q-text { font-size: 16px; }
+.qcard.no-text > .q-text { display: none; }
+.qcard.no-text .q-hint { margin-top: 0; }
+.msg-reply .opts { grid-template-columns: 1fr; }
+
+/* ---------- Бизнес ---------- */
+.contract { background: #fbf7ee; color: #1f1830; border-radius: 6px; padding: clamp(16px, 3vw, 28px); box-shadow: 0 20px 50px rgba(0,0,0,.5); position: relative; }
+.contract::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(31,24,48,.15); pointer-events: none; }
+.contract h3 { margin: 0 0 4px; font-family: var(--font-display); letter-spacing: .08em; text-transform: uppercase; }
+.contract .c-meta { font-size: 12px; color: #6b5f86; margin-bottom: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+.contract .clause { padding: 10px 0; border-top: 1px dashed rgba(31,24,48,.2); font-size: 16px; line-height: 1.6; }
+.contract .clause .num { font-family: var(--font-display); color: #b0186a; margin-right: 6px; }
+.contract .clause.done { color: #4a4060; }
+.contract .clause.active { background: rgba(255,46,136,.07); margin: 0 -10px; padding: 10px; border-radius: 6px; }
+.contract .filled { font-weight: 700; padding: 0 4px; border-radius: 4px; }
+.contract .filled.ok { background: rgba(34,197,94,.2); color: #0f6b34; }
+.contract .filled.bad { background: rgba(239,68,68,.15); color: #a1122a; }
+.contract .stamp { position: absolute; right: 20px; bottom: 16px; transform: rotate(-12deg); border: 3px solid #b0186a; color: #b0186a; font-family: var(--font-display); padding: 6px 12px; letter-spacing: .1em; opacity: 0; }
+.contract .stamp.on { animation: stamp .5s cubic-bezier(.2,1.6,.4,1) forwards; }
+.cash-counter { font-family: var(--font-display); font-size: 28px; color: var(--mint); }
+.essay-table { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-size: 14px; }
+.essay-table td { padding: 6px 8px; border-bottom: 1px solid rgba(31,24,48,.15); }
+.essay-table td:last-child { text-align: right; font-family: var(--font-display); }
+.essay-bar { height: 8px; border-radius: 4px; background: linear-gradient(90deg, #ff2e88, #7b2ff7); }
+
+/* ---------- Расследование ---------- */
+.board { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 14px; }
+.board-docs { display: grid; gap: 10px; }
+.doc { position: relative; background: #f3ead7; color: #2b2238; border-radius: 4px; padding: 14px 14px 12px; box-shadow: 0 10px 24px rgba(0,0,0,.45); font-size: 15px; line-height: 1.5; text-align: left; border: 2px solid transparent; width: 100%; }
+.doc:nth-child(odd) { transform: rotate(-.4deg); }
+.doc:nth-child(even) { transform: rotate(.4deg); }
+.doc .pin-dot { position: absolute; top: -6px; left: 50%; width: 14px; height: 14px; border-radius: 50%; background: #ff2e88; box-shadow: 0 2px 4px rgba(0,0,0,.4); }
+.doc .lbl { font-family: var(--font-display); color: #b0186a; margin-right: 6px; }
+.doc .assigned { display: block; margin-top: 8px; font-family: var(--font-display); font-size: 13px; color: #3a2f8a; }
+.doc.sel { border-color: #ff2e88; box-shadow: 0 0 0 3px rgba(255,46,136,.4), 0 10px 24px rgba(0,0,0,.45); }
+.doc.ok { border-color: #16a34a; }
+.doc.bad { border-color: #dc2626; }
+.board-side { position: sticky; top: 0; align-self: start; display: grid; gap: 10px; }
+.clue-list { display: grid; gap: 8px; }
+.clue { text-align: left; padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid var(--line); font-size: 15px; display: flex; gap: 8px; align-items: center; }
+.clue .n { font-family: var(--font-display); color: var(--cyan); }
+.clue.used { opacity: .45; }
+.clue:hover:not([disabled]) { border-color: var(--cyan); }
+.case-text { background: #f3ead7; color: #2b2238; border-radius: 6px; padding: 16px; font-size: 16px; line-height: 1.75; box-shadow: 0 10px 24px rgba(0,0,0,.45); }
+.case-text .slot { display: inline; padding: 2px 6px; border-radius: 6px; border: 2px dashed #7b2ff7; background: rgba(123,47,247,.08); font-weight: 600; cursor: pointer; color: #3a2f8a; }
+.case-text .slot.sel { background: rgba(255,46,136,.18); border-color: #ff2e88; }
+.case-text .slot.ok { border-style: solid; border-color: #16a34a; background: rgba(22,163,74,.12); color: #0f6b34; }
+.case-text .slot.bad { border-style: solid; border-color: #dc2626; background: rgba(220,38,38,.1); color: #a1122a; }
+.case-text p { margin: 0 0 10px; }
+.evidence { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+
+/* ---------- Аэропорт ---------- */
+.flight-board { background: #0d0d12; border-radius: 14px; padding: 12px; font-family: var(--font-mono); color: #ffd166; border: 1px solid #333; margin-bottom: 14px; }
+.flight-board .fb-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 10px; padding: 6px 4px; border-bottom: 1px solid #222; font-size: 14px; }
+.flight-board .fb-row:last-child { border-bottom: 0; }
+.flight-board .st { color: #7cf29c; }
+.audio-panel { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px; border-radius: 14px; background: rgba(34,228,255,.06); border: 1px solid rgba(34,228,255,.3); margin-bottom: 12px; }
+.audio-panel .wave { display: flex; gap: 3px; align-items: center; height: 30px; }
+.audio-panel .wave i { width: 4px; border-radius: 2px; background: var(--cyan); height: 6px; }
+.audio-panel.playing .wave i { animation: wave .9s ease-in-out infinite; }
+.audio-panel .wave i:nth-child(2n) { animation-delay: .15s; }
+.audio-panel .wave i:nth-child(3n) { animation-delay: .3s; }
+.transcript { margin-top: 10px; padding: 12px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--line); font-size: 15px; }
+.transcript p { margin: 0 0 6px; }
+.transcript b { color: var(--hot); }
+.tf-grid { display: grid; gap: 10px; }
+.tf-item { padding: 12px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); }
+.tf-item .s { font-size: 16px; margin-bottom: 8px; }
+.tf-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.tf-btns .opt { min-height: 42px; padding: 8px 12px; flex: 1 1 100px; justify-content: center; }
+.speaker-card { padding: 12px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); margin-bottom: 10px; }
+.speaker-card .sp-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.speaker-card .sp-h b { font-family: var(--font-display); font-size: 18px; }
+.select-list { display: grid; gap: 6px; }
+.select-list .opt { min-height: 42px; font-size: 14px; }
+
+/* ---------- Босс ---------- */
+.boss-arena { position: relative; border-radius: 20px; overflow: hidden; padding: 16px; margin-bottom: 14px; border: 1px solid var(--line);
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255,46,136,.35), rgba(11,4,32,.95) 60%); }
+.boss-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+.fighter { text-align: center; }
+.fighter .fp { width: clamp(84px, 16vw, 150px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 3px solid var(--cyan); box-shadow: var(--glow-cyan); }
+.fighter.enemy .fp { border-color: var(--pink); box-shadow: var(--glow-pink); }
+.fighter .fp svg { width: 100%; height: 100%; }
+.fighter .fn { font-family: var(--font-display); font-size: 14px; margin-top: 6px; }
+.hp { height: 14px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; margin-top: 6px; border: 1px solid rgba(255,255,255,.2); }
+.hp i { display: block; height: 100%; transition: width .5s ease; background: linear-gradient(90deg, #7cf29c, #22e4ff); }
+.fighter.enemy .hp i { background: linear-gradient(90deg, #ff2e88, #ff8c42); }
+.vs { font-family: var(--font-display); font-size: clamp(28px, 6vw, 54px); color: var(--sun); text-shadow: 0 0 20px rgba(255,209,102,.7); }
+.combo { text-align: center; font-family: var(--font-display); margin-top: 10px; min-height: 28px; font-size: 20px; color: var(--orange); }
+.fighter.hit .fp { animation: shake .4s; }
+
+/* ---------- Чтение вслух ---------- */
+.booth { display: grid; gap: 14px; }
+.onair { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 8px; background: #3a0a1a; color: #ff4d5e; font-family: var(--font-display); letter-spacing: .14em; }
+.onair.live { background: #ff4d5e; color: #fff; box-shadow: 0 0 20px rgba(255,77,94,.7); animation: pulse 1.2s infinite; }
+.read-text { font-size: clamp(17px, 2.2vw, 21px); line-height: 1.7; padding: 18px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
+.big-timer { font-family: var(--font-mono); font-size: 44px; }
+.checklist { display: grid; gap: 8px; }
+.checklist label { display: flex; gap: 10px; align-items: center; padding: 10px; border-radius: 10px; background: rgba(255,255,255,.04); border: 1px solid var(--line); cursor: pointer; }
+.checklist input { width: 20px; height: 20px; accent-color: var(--pink); }
