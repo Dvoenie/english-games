@@ -19,6 +19,8 @@ window.AQ_DATA = {
     conclude: ["All things considered, ...", "At the end of the day, ...", "So, on balance, ..."]
   },
 
+  home: { bg: "img/home.webp", grad: ["#0B2545", "#8DA9C4"] },
+
   chapters: [
     {
       id: "south",

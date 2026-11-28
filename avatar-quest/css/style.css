@@ -32,7 +32,8 @@ p{margin:0}
 .am-fill{height:100%;width:0;background:linear-gradient(90deg,var(--water),var(--earth),var(--fire),var(--air));transition:width .4s}
 .link{background:none;border:1px solid var(--line);border-radius:10px;padding:6px 10px}
 
-main{max-width:980px;margin:0 auto;padding:24px 16px 80px}
+main{max-width:980px;margin:0 auto;padding:24px 16px 24px;min-height:calc(100vh - 120px)}
+.sign{text-align:center;padding:16px 16px 28px;font-weight:700;font-size:15px;letter-spacing:.08em;color:var(--gold);text-shadow:0 1px 6px rgba(0,0,0,.7)}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;backdrop-filter:blur(6px)}
 .stack{display:flex;flex-direction:column;gap:16px}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
@@ -165,6 +166,7 @@ input[type=text]{flex:1;min-width:180px;padding:12px 14px;border-radius:12px;bor
 @media print{
   body{background:#fff;color:#000}
   .bg,.top,.teacher,.btn,.row button{display:none!important}
+  .sign{color:#000;text-shadow:none}
   .word,.panel{background:#fff;border-color:#999;color:#000}
   .muted,.word .muted{color:#333}
 }
