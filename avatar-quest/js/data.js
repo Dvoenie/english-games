@@ -31,7 +31,7 @@ window.AQ_DATA = {
       theme: "Hope after a long darkness",
       scene: {
         episode: "Ep. 1 «The Boy in the Iceberg»",
-        clipHint: "Покажите момент, где Катара и Сокка находят айсберг и из него выходит мальчик (первые ~5 минут серии).",
+        clipHint: "Книга 1, серия 1 «The Boy in the Iceberg». Начало серии сразу после заставки: Катара и Сокка на лодке, айсберг, из него выходит Аанг (около 4–5 минут).",
         quote: { text: "Water. Earth. Fire. Air.", who: "Katara, opening narration" },
         summary: "Two teenagers from a small, poor village at the South Pole find a boy frozen inside an iceberg. When he breaks out, he is cheerful, curious and completely unaware that a hundred years have passed. While he was asleep, a war started, and his whole world changed.",
         questions: [
@@ -68,7 +68,7 @@ window.AQ_DATA = {
       theme: "Facing a painful truth",
       scene: {
         episode: "Ep. 3 «The Southern Air Temple»",
-        clipHint: "Покажите, как Аанг возвращается в храм и понимает, что произошло с монахами (вторая половина серии).",
+        clipHint: "Книга 1, серия 3 «The Southern Air Temple». Конец серии: Аанг узнаёт, что случилось с монахами, и теряет контроль над собой (последние 4–5 минут).",
         quote: null,
         summary: "Aang takes his new friends to his home, a temple high in the mountains. He expects to see the monks who raised him. Katara already suspects the truth but can't find a way to tell him. Slowly Aang realises that his people are gone, and his grief turns into a power he cannot control.",
         questions: [
@@ -105,7 +105,7 @@ window.AQ_DATA = {
       theme: "Pride, stereotypes and respect",
       scene: {
         episode: "Ep. 4 «The Warriors of Kyoshi»",
-        clipHint: "Покажите момент, где Сокка приходит тренироваться к девушкам-воинам и проигрывает им (середина серии).",
+        clipHint: "Книга 1, серия 4 «The Warriors of Kyoshi». Середина серии: Сокка проигрывает Суки и просит её научить его (около 4–5 минут).",
         quote: null,
         summary: "On a peaceful island, the team is captured by a group of skilled fighters, who all turn out to be girls. Sokka is sure that girls can't be real warriors, until their leader, Suki, easily defeats him. To learn from them, he has to swallow his pride and even wear their traditional uniform.",
         questions: [
@@ -142,7 +142,7 @@ window.AQ_DATA = {
       theme: "Does the end justify the means?",
       scene: {
         episode: "Ep. 10 «Jet»",
-        clipHint: "Покажите момент, где Сокка узнаёт настоящий план Джета (последняя треть серии).",
+        clipHint: "Книга 1, серия 10 «Jet». Последняя треть серии: Сокка узнаёт, что Джет хочет затопить город (около 4–5 минут).",
         quote: null,
         summary: "In a forest, the friends meet Jet, a charming young rebel who leads a group of orphans against the Fire Nation. Katara is impressed by him. But Sokka discovers that Jet is ready to destroy a whole town, including innocent people, just to defeat the enemy soldiers there.",
         questions: [
@@ -179,7 +179,7 @@ window.AQ_DATA = {
       theme: "Running away, honour and second chances",
       scene: {
         episode: "Ep. 12 «The Storm» · Ep. 13 «The Blue Spirit»",
-        clipHint: "Серия 12: две истории прошлого — почему Аанг сбежал и почему изгнали Зуко (флешбэки). Серия 13: финальный разговор Аанга и Зуко в лесу.",
+        clipHint: "Книга 1, серия 12 «The Storm». Середина серии: воспоминание Зуко о военном совете и о том, почему его изгнали (около 4–5 минут).",
         quote: { text: "You will learn respect, and suffering will be your teacher.", who: "Fire Lord Ozai, Ep. 12" },
         summary: "During a terrible storm, we learn two stories from the past. Aang ran away when he was told he was the Avatar, because the responsibility felt too heavy for a twelve-year-old. Prince Zuko spoke up at a war meeting to protect young soldiers, was punished by his own father and sent away. He can only come home if he captures the Avatar.",
         questions: [
@@ -217,7 +217,7 @@ window.AQ_DATA = {
       theme: "Tradition, change and sacrifice",
       scene: {
         episode: "Ep. 18 «The Waterbending Master» · Ep. 20 «The Siege of the North, Part 2»",
-        clipHint: "Серия 18: Пакку отказывается учить Катару, и она вызывает его на поединок. Серия 20: решение Юи в финале.",
+        clipHint: "Книга 1, серия 18 «The Waterbending Master». Последняя треть серии: Катара вызывает мастера Пакку на поединок (около 4–5 минут).",
         quote: null,
         summary: "The friends finally reach a great city of ice, but the master there refuses to teach Katara because, in this tribe, girls are only allowed to learn healing. Katara challenges him to a duel to prove herself. Later, when the city is attacked, Princess Yue has to make a choice that costs her everything in order to save her people.",
         questions: [

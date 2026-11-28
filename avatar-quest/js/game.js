@@ -112,7 +112,7 @@
             return `<div class="student" role="button" tabindex="0" data-n="${esc(n)}"><span><b>${esc(n)}</b><br><span class="small muted">${d}/6 chapters${s.finale ? " · 🏆" : ""}</span></span><button class="del" data-del="${esc(n)}" title="Удалить ученика">×</button></div>`;
           }).join("") : `<p class="muted">Пока нет учеников. Добавьте первого ниже.</p>`}</div>
           <form class="row" id="add"><input type="text" id="newName" placeholder="Student's name, e.g. Anna" maxlength="30" required><button class="btn">+ New student</button></form>
-          <p class="teacher">у каждого ученика свой прогресс, он хранится в этом браузере. Откройте игру на своём компьютере и покажите экран в Zoom или звонке ВК. Ученик отвечает вслух, вы ставите оценки кнопками.</p>
+          <p class="teacher">у каждого ученика свой прогресс, он хранится в этом браузере. Откройте игру на своём компьютере и покажите экран в Zoom или звонке ВК. Ученик отвечает вслух, вы ставите оценки кнопками. Смотреть серии необязательно: в каждой главе есть пересказ, а фрагмент до 5 минут можно показать по желанию.</p>
         </div>
       </div>`;
     $("#add").onsubmit = (e) => {
@@ -236,7 +236,7 @@
     body.innerHTML = `
       <div class="kicker">🌪 Air · ${esc(sc.episode)}</div>
       ${sc.quote ? `<div class="quote">“${esc(sc.quote.text)}”<small>— ${esc(sc.quote.who)}</small></div>` : ""}
-      <p class="teacher">${esc(sc.clipHint)}</p>
+      <p class="teacher">🎬 Фрагмент по желанию, не больше 5 минут. ${esc(sc.clipHint)} <b>Смотреть серию необязательно:</b> пересказ ниже даёт всё нужное для заданий.</p>
       <p style="font-size:18px">${esc(sc.summary)}</p>
       <h3>Let's talk</h3>
       <ol class="qlist">${sc.questions.map((q) => `<li>${esc(q)}</li>`).join("")}</ol>`;
