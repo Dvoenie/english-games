@@ -5,7 +5,7 @@
 window.AQ_DATA = {
   elements: {
     water: { name: "Water", ru: "Лексика", icon: "💧", color: "#3BA7E0", desc: "Phrasal verbs & idioms" },
-    earth: { name: "Earth", ru: "Грамматика", icon: "⛰️", color: "#6BBF59", desc: "Wishes & conditionals" },
+    earth: { name: "Earth", ru: "Грамматика", icon: "🗻", color: "#6BBF59", desc: "Wishes & conditionals" },
     fire:  { name: "Fire",  ru: "Спор на время", icon: "🔥", color: "#F2603A", desc: "Timed debate" },
     air:   { name: "Air",   ru: "Сцена и обсуждение", icon: "🌪", color: "#E9C46A", desc: "Scene talk & role-play" }
   },

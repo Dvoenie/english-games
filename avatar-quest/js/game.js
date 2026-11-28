@@ -103,7 +103,7 @@
           <div class="kicker">Speaking game · B1+ · Book 1</div>
           <h1>Avatar Quest:<br>Book of Water</h1>
           <p class="muted">Travel through six chapters of the story. Learn phrasal verbs and idioms, practise wishes &amp; conditionals — and talk, talk, talk.</p>
-          <div class="elements-row"><span>💧</span><span>⛰️</span><span>🔥</span><span>🌪</span></div>
+          <div class="elements-row"><span>💧</span><span>🗻</span><span>🔥</span><span>🌪</span></div>
         </div>
         <div class="panel stack">
           <h3>Who is playing today?</h3>
@@ -162,7 +162,7 @@
             const locked = !chapterUnlocked(i);
             return `<button class="chap ${locked ? "locked" : ""}" data-i="${i}" ${locked ? "disabled" : ""} style="background-image:linear-gradient(transparent,transparent),url('${c.bg}'),linear-gradient(160deg,${c.grad[0]},${c.grad[1]})">
               <span class="num">${i + 1}</span>
-              <span class="badges">${["scene", "water", "earth", "fire", "roleplay"].map((k) => `<span class="${st[k] ? "on" : ""}">${{ scene: "🌪", water: "💧", earth: "⛰️", fire: "🔥", roleplay: "🎭" }[k]}</span>`).join("")}</span>
+              <span class="badges">${["scene", "water", "earth", "fire", "roleplay"].map((k) => `<span class="${st[k] ? "on" : ""}">${{ scene: "🌪", water: "💧", earth: "🗻", fire: "🔥", roleplay: "🎭" }[k]}</span>`).join("")}</span>
               <span class="inner"><span class="small muted">${c.episodes}</span><h3>${c.title}</h3><span class="small">${c.theme}</span></span>
             </button>`;
           }).join("")}
@@ -182,7 +182,7 @@
   const STEPS = [
     { k: "scene", label: "🌪 Scene" },
     { k: "water", label: "💧 Words duel" },
-    { k: "earth", label: "⛰️ Wishes & ifs" },
+    { k: "earth", label: "🗻 Wishes & ifs" },
     { k: "fire", label: "🔥 Debate" },
     { k: "roleplay", label: "🎭 Interview" }
   ];
@@ -303,7 +303,7 @@
       const g = c.grammar[k];
       const opts = shuffle(g.options.map((t, idx) => ({ t, ok: idx === g.answer })));
       body.innerHTML = `
-        <div class="kicker">⛰️ Earth · ${esc(g.type)} · ${k + 1}/${c.grammar.length}</div>
+        <div class="kicker">🗻 Earth · ${esc(g.type)} · ${k + 1}/${c.grammar.length}</div>
         <p style="font-size:19px"><b>Situation:</b> ${esc(g.situation)}</p>
         <p class="muted">Choose the correct sentence:</p>
         <div class="opts" style="grid-template-columns:1fr">${opts.map((o, j) => `<button class="opt" data-j="${j}">${esc(o.t)}</button>`).join("")}</div>
