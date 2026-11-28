@@ -143,7 +143,7 @@
 
   function screenMap() {
     const s = S(); if (!s) return screenProfiles();
-    renderTop(); setBg(null); window.scrollTo(0, 0);
+    renderTop(); setBg(D.home); window.scrollTo(0, 0);
     const doneCount = Object.keys(s.done).length;
     const finaleOpen = store.unlockAll || doneCount >= 6;
     app.innerHTML = `
@@ -513,7 +513,7 @@
   /* ---- word book ---- */
   function screenWords() {
     stopTimer();
-    const s = S(); setBg(null); renderTop(); window.scrollTo(0, 0);
+    const s = S(); setBg(D.home); renderTop(); window.scrollTo(0, 0);
     app.innerHTML = `<div class="stack">
       <div class="map-tools"><div><div class="kicker">Word book</div><h2>${esc(store.current)}'s expressions</h2></div>
       <div class="row"><button class="btn ghost small" id="print">🖨 Print / PDF</button><button class="btn ghost small" id="back">← Map</button></div></div>
