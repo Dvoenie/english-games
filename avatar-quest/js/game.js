@@ -95,7 +95,7 @@
   /* ================= SCREENS ================= */
 
   function screenProfiles() {
-    store.current = null; save(); renderTop(); setBg(null);
+    store.current = null; save(); renderTop(); setBg(D.home);
     const names = Object.keys(store.students).sort((a, b) => store.students[b].created - store.students[a].created);
     app.innerHTML = `
       <div class="stack">
