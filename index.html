@@ -3,41 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Игры по английскому</title>
-<style>
-:root{--bg:#F7F6F1;--card:#fff;--ink:#16224A;--muted:#5D6685;--line:#D9DCE8;--accent:#FFC93C}
-@media (prefers-color-scheme:dark){:root{--bg:#0E1530;--card:#16204A;--ink:#EEF1FA;--muted:#A7B0D0;--line:#2C3868;color-scheme:dark}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Roboto,Arial,sans-serif;padding:32px max(16px,env(safe-area-inset-left,0px))}
-.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-section{display:flex;flex-direction:column;gap:12px}
-h1{margin:0;font-size:32px;line-height:1.1}
-p{margin:0;color:var(--muted)}
-a.card{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none}
-a.card:hover,a.card:focus-visible{border-color:var(--ink);outline:none}
-a.card b{font-size:18px}
-h2{margin:16px 0 0;font-size:22px}
-.soon{padding:14px 20px;border:1px dashed var(--line);border-radius:14px;color:var(--muted)}
-.tag{display:inline-block;background:var(--accent);color:#16224A;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;align-self:flex-start}
-</style>
+<title>Игры по английскому — Английский с Ириной Александровной</title>
+<meta name="description" content="Бесплатные онлайн-тренажёры по английскому: для детей, школьников, подготовки к ОГЭ и ЕГЭ и для взрослых.">
+<meta property="og:title" content="Игры по английскому">
+<meta property="og:description" content="Тренажёры от сообщества «Английский с Ириной Александровной»">
+<meta property="og:image" content="https://dvoenie.github.io/english-games/assets/home/hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/home/style.css?v=20261128a">
 </head>
 <body>
-<div class="wrap">
-<h1>Игры по английскому</h1>
-<p>Тренажёры от сообщества «Английский с Ириной Александровной» (vk.com/club30029810).</p>
-<section id="kids"><h2>Для детей</h2>
-<a class="card" href="chrono-rift/"><span class="tag">Неправильные глаголы</span><b>Хроноразлом</b><span>Приключение в ночном Париже: 86 неправильных глаголов, 6 мини-игр и финальная битва</span></a>
-</section>
-<section id="school"><h2>Школьникам</h2>
-<div class="soon">Скоро здесь появятся игры</div>
-</section>
-<section id="exams"><h2>ОГЭ / ЕГЭ</h2>
-<a class="card" href="english-city/"><span class="tag">ЕГЭ</span><b>English City: Road to 100 Points</b><span>Неоновый город, 30 миссий и 185 заданий в формате ЕГЭ: гонки, расследования, аудирование, эссе и битвы с боссами</span></a>
-<a class="card" href="phrasal-ege/"><span class="tag">ЕГЭ</span><b>Фразовые глаголы ЕГЭ</b><span>20 заданий в формате экзамена за 3 минуты</span></a>
-</section>
-<section id="adults"><h2>Взрослым</h2>
-<div class="soon">Скоро здесь появятся игры</div>
-</section>
-</div>
+
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="brand">Английский с Ириной Александровной</p>
+    <h1>Игры по&nbsp;английскому</h1>
+    <p class="lead">Тренажёры, в которые хочется возвращаться: от первых слов до 100 баллов на ЕГЭ. Играйте с телефона или компьютера, без регистрации.</p>
+    <nav class="chips" aria-label="Категории">
+      <a href="#kids">Для детей</a>
+      <a href="#school">Школьникам</a>
+      <a href="#exams">ОГЭ / ЕГЭ</a>
+      <a href="#adults">Взрослым</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="cat" id="kids">
+    <div class="cat-cover c-kids"><span class="cat-num">01</span></div>
+    <div class="cat-body">
+      <h2>Для детей</h2>
+      <p class="cat-sub">Слова и грамматика через приключения и мини-игры</p>
+      <div class="cards">
+        <a class="card" href="chrono-rift/">
+          <span class="tag">Неправильные глаголы</span>
+          <b>Хроноразлом</b>
+          <span class="desc">Приключение в ночном Париже: 86 неправильных глаголов, 6 мини-игр и финальная битва</span>
+          <span class="go">Играть →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat" id="school">
+    <div class="cat-cover c-school"><span class="cat-num">02</span></div>
+    <div class="cat-body">
+      <h2>Школьникам</h2>
+      <p class="cat-sub">Тренажёры к урокам по Spotlight и школьной программе</p>
+      <div class="cards">
+        <div class="soon">Скоро здесь появятся игры</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat" id="exams">
+    <div class="cat-cover c-exams"><span class="cat-num">03</span></div>
+    <div class="cat-body">
+      <h2>ОГЭ / ЕГЭ</h2>
+      <p class="cat-sub">Задания в формате экзамена с проверкой по ключам</p>
+      <div class="cards">
+        <a class="card" href="english-city/">
+          <span class="tag">ЕГЭ</span>
+          <b>English City: Road to 100 Points</b>
+          <span class="desc">Неоновый город, 30 миссий и 185 заданий в формате ЕГЭ: гонки, расследования, аудирование, эссе и битвы с боссами</span>
+          <span class="go">Играть →</span>
+        </a>
+        <a class="card" href="phrasal-ege/">
+          <span class="tag">ЕГЭ</span>
+          <b>Фразовые глаголы ЕГЭ</b>
+          <span class="desc">20 заданий в формате экзамена за 3 минуты</span>
+          <span class="go">Играть →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cat" id="adults">
+    <div class="cat-cover c-adults"><span class="cat-num">04</span></div>
+    <div class="cat-body">
+      <h2>Взрослым</h2>
+      <p class="cat-sub">Разговорный английский для работы и путешествий</p>
+      <div class="cards">
+        <div class="soon">Скоро здесь появятся игры</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <p class="brand">Английский с Ириной Александровной</p>
+    <p>Индивидуальные занятия онлайн: дошкольники, школьники, ОГЭ, ЕГЭ и взрослые. Пишите в личные сообщения группы.</p>
+    <a class="btn" href="https://vk.com/club30029810" target="_blank" rel="noopener">Сообщество ВКонтакте</a>
+  </div>
+</footer>
+
 </body>
 </html>
